@@ -1,5 +1,5 @@
-import { makeTree } from "@/utils/binary-tree-node";
 import "jest";
+import { makeTree } from "@/utils/binary-tree-node";
 import { bfsFindTarget, dfsFindTarget } from "./index";
 
 test("two-sum-iv-input-is-a-bst test", () => {
