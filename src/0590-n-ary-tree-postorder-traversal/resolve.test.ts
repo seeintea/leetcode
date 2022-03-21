@@ -3,10 +3,10 @@ import { makeTree } from "@/utils/n-ary-tree-node";
 import { rePreOrder, recursion } from "./index";
 
 test("n-ary-tree-postorder-traversa test", () => {
-  const iters = [
-    { i: [1, null, 3, 2, 4, null, 5, 6], o: [5, 6, 3, 2, 4, 1] },
+  const testExamples = [
+    { root: [1, null, 3, 2, 4, null, 5, 6], ret: [5, 6, 3, 2, 4, 1] },
     {
-      i: [
+      root: [
         1,
         null,
         2,
@@ -33,12 +33,12 @@ test("n-ary-tree-postorder-traversa test", () => {
         null,
         14,
       ],
-      o: [2, 6, 14, 11, 7, 3, 12, 8, 4, 13, 9, 10, 5, 1],
+      ret: [2, 6, 14, 11, 7, 3, 12, 8, 4, 13, 9, 10, 5, 1],
     },
   ];
 
-  iters.forEach(({ i, o }) => {
-    expect(rePreOrder(makeTree(i))).toStrictEqual(o);
-    expect(recursion(makeTree(i))).toStrictEqual(o);
+  testExamples.forEach(({ root, ret }) => {
+    expect(rePreOrder(makeTree(root))).toStrictEqual(ret);
+    expect(recursion(makeTree(root))).toStrictEqual(ret);
   });
 });
