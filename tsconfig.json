@@ -10,9 +10,9 @@
     "useUnknownInCatchVariables": false,
     "baseUrl": "./",
     "paths": {
-      "@/src/" : ["./src/*"],
+      "@/src/": ["./src/*"],
       "@/utils/*": ["./utils/*"],
-      "@/types/*": ["./types/*"],
+      "@/types/*": ["./types/*"]
     }
-  },
+  }
 }
