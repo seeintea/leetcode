@@ -7,7 +7,8 @@
   "license": "MIT",
   "scripts": {
     "test": "jest",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "cat": "node create.js"
   },
   "devDependencies": {
     "@babel/core": "^7.17.5",
