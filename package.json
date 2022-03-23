@@ -3,7 +3,7 @@
   "version": "0.1.1",
   "description": "record and resolve some problems.",
   "main": "index.js",
-  "author": "leviegt gu.lw@outlook.com",
+  "author": "leviegt gu.lw@foxmail.com",
   "license": "MIT",
   "scripts": {
     "test": "jest",
