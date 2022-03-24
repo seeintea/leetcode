@@ -6,9 +6,9 @@
   "author": "leviegt gu.lw@foxmail.com",
   "license": "MIT",
   "scripts": {
-    "test": "jest",
-    "prepare": "husky install",
-    "cat": "node create.js"
+    "auto": "node lazy-create.js",
+    "test": "node lazy-test.js",
+    "prepare": "husky install"
   },
   "devDependencies": {
     "@babel/core": "^7.17.5",
