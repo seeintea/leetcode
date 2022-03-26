@@ -11,7 +11,6 @@ const create_index = (url) => {
 function example() {}
 
 export default example;
-
 `;
 };
 
