@@ -20,7 +20,7 @@ const makeTree = (iter: IterNode<number>[]): TreeNode => {
   const stack: IterNode<TreeNode>[] = [ret];
 
   while (0 < stack.length && ptr < len) {
-    const node = stack.pop();
+    const node = stack.shift();
     if (node == null) {
       continue;
     }
@@ -35,7 +35,7 @@ const makeTree = (iter: IterNode<number>[]): TreeNode => {
     }
     node.left = leftNode;
     node.right = rightNode;
-    stack.push(rightNode, leftNode);
+    stack.push(leftNode, rightNode);
   }
   return ret;
 };
