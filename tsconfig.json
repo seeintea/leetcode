@@ -1,18 +1,15 @@
 {
   "compilerOptions": {
-    "target": "ES2021",
-    "moduleResolution": "node",
+    "incremental": true,
+    "target": "es2021",
+    "module": "commonjs",
+    "lib": ["es2021"],
     "strict": true,
-    "declaration": true,
-    "noImplicitOverride": true,
-    "noUnusedLocals": true,
+    "sourceMap": true,
+    "moduleResolution": "node",
     "esModuleInterop": true,
-    "useUnknownInCatchVariables": false,
-    "baseUrl": "./",
-    "paths": {
-      "@/src/": ["./src/*"],
-      "@/utils/*": ["./utils/*"],
-      "@/types/*": ["./types/*"]
-    }
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
+    "allowJs": true
   }
 }

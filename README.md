@@ -1,3 +1,0 @@
-# leetcode
-
-😶Maybe it works.
