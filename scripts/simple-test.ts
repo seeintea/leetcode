@@ -9,7 +9,16 @@ import chalk from 'chalk';
     const idx = process.argv[2];
     const dir = path.join(__dirname, '../src');
     const subDirs = fs.readdirSync(dir);
-    const targetDir = subDirs.find((p) => p.indexOf(idx) > -1);
+    const allSubDirs: string[] = [];
+    subDirs.forEach((dirPath) => {
+      if (!/O?\d/g.test(dirPath)) {
+        const innerDirs = fs.readdirSync(`${dir}/${dirPath}`).map((p) => `${dirPath}/${p}`);
+        allSubDirs.push(...innerDirs);
+      } else {
+        allSubDirs.push(dirPath);
+      }
+    });
+    const targetDir = allSubDirs.find((p) => p.indexOf(idx) > -1);
     if (targetDir) {
       commands.push(`src/${targetDir}`);
     } else {

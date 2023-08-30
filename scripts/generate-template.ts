@@ -2,6 +2,7 @@ import path from 'path';
 import fs from 'fs';
 import chalk from 'chalk';
 
+// example: pnpm run create 1 https://xxx.com/name array
 (() => {
   const { argv } = process;
   const args = argv.slice(2);
@@ -10,10 +11,20 @@ import chalk from 'chalk';
     return;
   }
 
-  const [name, template0, template1] = createTemplate(args[1]);
+  const [idx, url, type] = args;
 
-  const filename = `${args[0].padStart(4, '0')}-${name}`;
-  const dirPath = path.join(__dirname, '../src', filename);
+  if (type) {
+    const typePath = path.join(__dirname, '../src', type);
+    const isExist = fs.existsSync(typePath);
+    if (!isExist) {
+      fs.mkdirSync(typePath);
+    }
+  }
+
+  const [name, template0, template1] = createTemplate(url);
+
+  const filename = `${idx.padStart(4, '0')}-${name}`;
+  const dirPath = path.join(__dirname, '../src', type ? `${type}/${filename}` : filename);
   const isExist = fs.existsSync(dirPath);
   if (isExist) {
     console.log(chalk.yellowBright.bold(`⚠️  oops, ${filename} exist !`));
@@ -29,7 +40,8 @@ import chalk from 'chalk';
 })();
 
 function createTemplate(url: string): [string, string, string] {
-  const subject = url.split('/').filter((item) => item)[3];
+  let subject: string[] | string = url.split('/').filter((item) => item);
+  subject = subject[subject.length - 1];
 
   const name = subject
     .split('-')
