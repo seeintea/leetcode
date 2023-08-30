@@ -1,11 +1,12 @@
 import path from 'path';
 import fs from 'fs';
+import chalk from 'chalk';
 
 (() => {
   const { argv } = process;
   const args = argv.slice(2);
   if (args.length < 2) {
-    console.warn('⚠️ not enough data to create template!');
+    console.log(chalk.red.bold('⚠️  not enough data to create template!'));
     return;
   }
 
@@ -15,7 +16,7 @@ import fs from 'fs';
   const dirPath = path.join(__dirname, '../src', filename);
   const isExist = fs.existsSync(dirPath);
   if (isExist) {
-    console.warn(`oops, ${filename} exist !`);
+    console.log(chalk.yellowBright.bold(`⚠️  oops, ${filename} exist !`));
     return;
   }
   fs.mkdirSync(dirPath);

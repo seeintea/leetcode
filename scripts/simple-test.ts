@@ -1,6 +1,7 @@
 import path from 'path';
 import fs from 'fs';
 import { spawn } from 'child_process';
+import chalk from 'chalk';
 
 (() => {
   const commands: string[] = [];
@@ -12,12 +13,12 @@ import { spawn } from 'child_process';
     if (targetDir) {
       commands.push(`src/${targetDir}`);
     } else {
-      console.log(`error: can't find test ${idx}`);
+      console.log(chalk.yellowBright.bold(`⚠️  error: can't find item idx eq ${idx}`));
       return;
     }
   }
   const exec = spawn('./node_modules/.bin/vitest', commands, { stdio: 'inherit' });
   exec.on('close', (code) => {
-    console.log(`child process exited with code ${code}`);
+    console.log(chalk.greenBright.bold(`child process exited with code ${code}`));
   });
 })();
