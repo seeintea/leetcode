@@ -68,7 +68,9 @@ type IParams = Parameters<typeof ${name}>;
 type IReturn = ReturnType<typeof ${name}>;
 
 test('${name} test', () => {
-  const testExamples: { params: IParams; result: IReturn }[] = [];
+  const testExamples: { params: IParams; result: IReturn }[] = [
+    { params: [], result: '' },
+  ];
 
   testExamples.forEach(({ params, result }) => {
     expect(${name}(...params)).toBe(result);
