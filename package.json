@@ -6,7 +6,8 @@
   "author": "leviegu <gu.lw@foxmail.com>",
   "license": "MIT",
   "scripts": {
-    "create": "ts-node scripts/generate-template.ts",
+    "create:v1": "ts-node scripts/generate-template.ts",
+    "create": "ts-node scripts/generate-template-v2.ts",
     "test": "ts-node scripts/simple-test",
     "test:all": "vitest"
   },
@@ -34,5 +35,8 @@
   ],
   "lint-staged": {
     "**/*": "prettier --write --ignore-unknown"
+  },
+  "engines": {
+    "node": ">=18"
   }
 }
