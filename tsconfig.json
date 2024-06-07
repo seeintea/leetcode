@@ -11,5 +11,6 @@
     "allowSyntheticDefaultImports": true,
     "resolveJsonModule": true,
     "allowJs": true
-  }
+  },
+  "include": ["scripts", "src"]
 }
